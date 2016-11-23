@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.lavinia.eventsapp.InputTextEmail">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:layout_margin="16dp"
+
+                android:id="@+id/name_box"
+                android:hint="tell us your name" />
+
+        <!--<TextView-->
+            <!--android:id="@+id/text_lbl"-->
+            <!--android:layout_below="@id/name_box"-->
+
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_margin="@dimen/text_margin"-->
+            <!--android:textAppearance="?attr/textAppearanceListItem"-->
+            <!--tools:text="We would like to hear your suggestions::" />-->
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_margin="16dp"
+            android:layout_below="@id/name_box"
+
+            android:id="@+id/message_box"
+            android:hint="tell us your suggestions" />
+            <!--android:ems="10"-->
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                app:srcCompat="@android:drawable/ic_dialog_email"
+                android:layout_below="@id/message_box"
+
+                android:layout_alignParentRight="true" />
+
+            <Button
+                android:text="Skip this part ->"
+                android:id="@+id/skip_btn"
+                android:layout_width="match_parent"
+                android:textSize="25px"
+                android:layout_height="70px"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"                  >
+                >
+            </Button>
+
+            <!--app:layout_anchor="@+id/frameLayout" />-->
+        </RelativeLayout>
+    </FrameLayout>
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
