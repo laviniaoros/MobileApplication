@@ -28,16 +28,16 @@ export default class EmailScene extends Component {
         <View style={{padding: 10, flex:1}}>
           <TextInput
             style={{height: 40}}
-            placeholder="Type here to translate!"
+            placeholder="tell us your name"
             onChangeText={(text1) => this.setState({text1})}
             />
             <TextInput
               style={{height: 40}}
-              placeholder="Type here to translate!"
+              placeholder="tell us your suggestions"
               onChangeText={(text2) => this.setState({text2})}
             />
           <View style={styles.container}>
-              <TouchableOpacity onPress={() => Communications.email(this.state.text1,null,null,this.state.text2,'My body text')}>
+              <TouchableOpacity onPress={() => Communications.email(['lavi_mioara@yahoo.com'],null,null,"Sugesttions from "+this.state.text1,this.state.text2)}>
                 <View style={styles.holder}>
                   <Text style={styles.text}>Send an email</Text>
                 </View>

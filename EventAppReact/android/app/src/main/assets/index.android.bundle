@@ -70095,16 +70095,16 @@ return(
 _react2.default.createElement(_reactNative.View,{style:{padding:10,flex:1}},
 _react2.default.createElement(_reactNative.TextInput,{
 style:{height:40},
-placeholder:'Type here to translate!',
+placeholder:'tell us your name',
 onChangeText:function onChangeText(text1){return _this2.setState({text1:text1});}}),
 
 _react2.default.createElement(_reactNative.TextInput,{
 style:{height:40},
-placeholder:'Type here to translate!',
+placeholder:'tell us your suggestions',
 onChangeText:function onChangeText(text2){return _this2.setState({text2:text2});}}),
 
 _react2.default.createElement(_reactNative.View,{style:styles.container},
-_react2.default.createElement(_reactNative.TouchableOpacity,{onPress:function onPress(){return _reactNativeCommunications2.default.email(_this2.state.text1,null,null,_this2.state.text2,'My body text');}},
+_react2.default.createElement(_reactNative.TouchableOpacity,{onPress:function onPress(){return _reactNativeCommunications2.default.email(['lavi_mioara@yahoo.com'],null,null,"Sugesttions from "+_this2.state.text1,_this2.state.text2);}},
 _react2.default.createElement(_reactNative.View,{style:styles.holder},
 _react2.default.createElement(_reactNative.Text,{style:styles.text},'Send an email'))))));
 
