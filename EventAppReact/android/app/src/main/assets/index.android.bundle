@@ -1523,23 +1523,6 @@ return _react2.default.createElement(_listScene2.default,{navigator:navigator,ti
 
 
 
-var styles=_reactNative.StyleSheet.create({
-container:{
-flex:1},
-
-navigationBar:{
-backgroundColor:'darkred'},
-
-navigationBarText:{
-color:'white',
-padding:10,
-fontSize:15},
-
-titleText:{
-fontSize:20,
-paddingTop:5}});
-
-
 
 
 _reactNative.AppRegistry.registerComponent('EventAppReact',function(){return EventAppReact;});
@@ -70128,8 +70111,8 @@ _react2.default.createElement(_reactNative.Text,{style:styles.text},'Send an ema
 
 
 
-_react2.default.createElement(_reactNative.TouchableHighlight,{style:styles.navigation_bar,onPress:this.onButtonPress.bind(this)},
-_react2.default.createElement(_reactNative.Text,null,' Go now, will you? '))));
+_react2.default.createElement(_reactNative.TouchableHighlight,{style:{backgroundColor:'red'},onPress:this.onButtonPress.bind(this)},
+_react2.default.createElement(_reactNative.Text,{style:{color:'white'}},' Go now, will you? '))));
 
 
 
@@ -70150,13 +70133,10 @@ flex:0.25,
 justifyContent:'center'},
 
 text:{
-fontSize:32},
-
-navigation_bar:{
-backgroundColor:'darkred'}});
+fontSize:32}});
 }, "EventAppReact/emailScene.js");
 __d(550 /* EventAppReact/listScene.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
-var _reactNative=require(44 /* react-native */);
+var _reactNative=require(44 /* react-native */);var
 
 
 
@@ -70166,19 +70146,6 @@ var _reactNative=require(44 /* react-native */);
 
 
 
-
-var styles=_reactNative.StyleSheet.create({
-container:{
-flex:1,
-marginTop:20},
-
-separator:{
-flex:1,
-height:_reactNative.StyleSheet.hairlineWidth,
-backgroundColor:'#8E8E8E'},
-
-progress:{
-marginTop:80}});var
 
 
 
@@ -70202,6 +70169,15 @@ renderRow:function renderRow(rowData){return _react2.default.createElement(_reac
 
 
 }}]);return ListScreen;}(_react.Component);exports.default=ListScreen;
+
+
+var styles=_reactNative.StyleSheet.create({
+container:{
+flex:1},
+
+titleText:{
+fontSize:20,
+paddingTop:5}});
 }, "EventAppReact/listScene.js");
 ;require(194);
 ;require(0);

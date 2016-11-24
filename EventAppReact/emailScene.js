@@ -40,8 +40,8 @@ export default class EmailScene extends Component {
                 </View>
               </TouchableOpacity>
           </View>
-          <TouchableHighlight style={styles.navigation_bar} onPress={this.onButtonPress.bind(this)}>
-              <Text> Go now, will you? </Text>
+          <TouchableHighlight style={{backgroundColor:'red'}} onPress={this.onButtonPress.bind(this)}>
+              <Text style={{color:'white'}}> Go now, will you? </Text>
           </TouchableHighlight>
         </View>
 
@@ -63,11 +63,5 @@ var styles = StyleSheet.create({
   },
   text: {
     fontSize: 32,
-  },
-  navigation_bar:{
-   backgroundColor: 'darkred',
-   color: 'white',
-   padding: 10,
-   fontSize: 15
- }
+  }
 })

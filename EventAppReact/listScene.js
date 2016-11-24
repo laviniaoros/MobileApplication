@@ -10,20 +10,7 @@ import {
 
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 20,
-  },
-  separator: {
-    flex: 1,
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: '#8E8E8E',
-  },
-  progress: {
-    marginTop: 80,
-  },
-});
+
 
 export default class ListScreen extends Component {
   constructor(props) {
@@ -37,11 +24,10 @@ export default class ListScreen extends Component {
 }
 render() {
   return (
-    <View style={{style.container}}>
-      <Text style={{styles.titleText}}>Events</Text>
+    <View style={{flex: 1, paddingTop: 22}}>
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={(rowData) => <Text style={{style}}>{rowData}</Text>}
+        renderRow={(rowData) => <Text>{rowData}</Text>}
       />
     </View>
   );
