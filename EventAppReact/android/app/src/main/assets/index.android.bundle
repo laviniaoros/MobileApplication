@@ -1478,7 +1478,6 @@ __d(0 /* EventAppReact/index.android.js */, function(global, require, module, ex
 
 
 
-
 var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
 var _reactNative=require(44 /* react-native */);
 
@@ -1488,38 +1487,60 @@ var _reactNative=require(44 /* react-native */);
 
 
 
+
 var _reactNativeCommunications=require(548 /* react-native-communications */);var _reactNativeCommunications2=babelHelpers.interopRequireDefault(_reactNativeCommunications);
-var _emailScene=require(549 /* ./emailScene */);var _emailScene2=babelHelpers.interopRequireDefault(_emailScene);var
+
+var _emailScene=require(549 /* ./emailScene.js */);var _emailScene2=babelHelpers.interopRequireDefault(_emailScene);
+var _listScene=require(550 /* ./listScene */);var _listScene2=babelHelpers.interopRequireDefault(_listScene);var
+
+
 
 EventAppReact=function(_Component){babelHelpers.inherits(EventAppReact,_Component);function EventAppReact(){babelHelpers.classCallCheck(this,EventAppReact);return babelHelpers.possibleConstructorReturn(this,(EventAppReact.__proto__||Object.getPrototypeOf(EventAppReact)).apply(this,arguments));}babelHelpers.createClass(EventAppReact,[{key:'render',value:function render()
 {
 return(
+
 _react2.default.createElement(_reactNative.Navigator,{
-initialRoute:{title:'EmailScene',index:0},
-renderScene:function renderScene(route,navigator){return(
-_react2.default.createElement(_emailScene2.default,{
-title:route.title,
+initialRoute:{
+id:'Email'},
+
+renderScene:
+this.navigatorRenderScene}));
 
 
-onForward:function onForward(){
-var nextIndex=route.index+1;
-navigator.push({
-title:'Scene '+nextIndex,
-index:nextIndex});
 
-},
+}},{key:'navigatorRenderScene',value:function navigatorRenderScene(
 
-
-onBack:function onBack()
-{if(route.index>0){
-navigator.pop();
-}
-}}));}}));
-
-
+route,navigator){
+_navigator=navigator;
+switch(route.id){
+case'Email':
+return _react2.default.createElement(_emailScene2.default,{navigator:navigator,title:'Email'});
+case'List':
+return _react2.default.createElement(_listScene2.default,{navigator:navigator,title:'List'});}
 
 
 }}]);return EventAppReact;}(_react.Component);
+
+
+
+var styles=_reactNative.StyleSheet.create({
+container:{
+flex:1},
+
+navigationBar:{
+backgroundColor:'darkred'},
+
+navigationBarText:{
+color:'white',
+padding:10,
+fontSize:15},
+
+titleText:{
+fontSize:20,
+paddingTop:5}});
+
+
+
 
 _reactNative.AppRegistry.registerComponent('EventAppReact',function(){return EventAppReact;});
 }, "EventAppReact/index.android.js");
@@ -70076,21 +70097,18 @@ var _reactNative=require(44 /* react-native */);
 
 
 var _reactNativeCommunications=require(548 /* react-native-communications */);var _reactNativeCommunications2=babelHelpers.interopRequireDefault(_reactNativeCommunications);
-var _listScene=require(550 /* ./listScene.js */);var _listScene2=babelHelpers.interopRequireDefault(_listScene);
+var _listScene=require(550 /* ./listScene.js */);var _listScene2=babelHelpers.interopRequireDefault(_listScene);var
 
-var routes=[
+
+
+EmailScene=function(_Component){babelHelpers.inherits(EmailScene,_Component);function EmailScene(){babelHelpers.classCallCheck(this,EmailScene);return babelHelpers.possibleConstructorReturn(this,(EmailScene.__proto__||Object.getPrototypeOf(EmailScene)).apply(this,arguments));}babelHelpers.createClass(EmailScene,[{key:'onButtonPress',value:function onButtonPress()
 {
-title:'ListScreen',
-index:0}];var
+this.props.navigator.push({
+id:'List'});
 
-
-
-EmailScene=function(_Component){babelHelpers.inherits(EmailScene,_Component);
-function EmailScene(props){babelHelpers.classCallCheck(this,EmailScene);var _this=babelHelpers.possibleConstructorReturn(this,(EmailScene.__proto__||Object.getPrototypeOf(EmailScene)).call(this,
-props));
-_this.state={text1:'',text2:''};return _this;
-}babelHelpers.createClass(EmailScene,[{key:'render',value:function render()
+}},{key:'render',value:function render()
 {var _this2=this;
+
 return(
 _react2.default.createElement(_reactNative.View,{style:{padding:10,flex:1}},
 _react2.default.createElement(_reactNative.TextInput,{
@@ -70106,15 +70124,20 @@ onChangeText:function onChangeText(text2){return _this2.setState({text2:text2});
 _react2.default.createElement(_reactNative.View,{style:styles.container},
 _react2.default.createElement(_reactNative.TouchableOpacity,{onPress:function onPress(){return _reactNativeCommunications2.default.email(['lavi_mioara@yahoo.com'],null,null,"Sugesttions from "+_this2.state.text1,_this2.state.text2);}},
 _react2.default.createElement(_reactNative.View,{style:styles.holder},
-_react2.default.createElement(_reactNative.Text,{style:styles.text},'Send an email'))))));
+_react2.default.createElement(_reactNative.Text,{style:styles.text},'Send an email')))),
 
 
 
+_react2.default.createElement(_reactNative.TouchableHighlight,{style:styles.navigation_bar,onPress:this.onButtonPress.bind(this)},
+_react2.default.createElement(_reactNative.Text,null,' Go now, will you? '))));
 
 
 
 
 }}]);return EmailScene;}(_react.Component);exports.default=EmailScene;
+;
+
+
 
 var styles=_reactNative.StyleSheet.create({
 container:{
@@ -70129,26 +70152,11 @@ justifyContent:'center'},
 text:{
 fontSize:32},
 
-navigationBar:{
-backgroundColor:'darkred'},
-
-navigationBarText:{
-color:'white',
-padding:10,
-fontSize:15},
-
-titleText:{
-fontSize:20,
-paddingTop:5}});
-
-
-EmailScene.propTypes={
-title:_react.PropTypes.string.isRequired,
-onForward:_react.PropTypes.func.isRequired,
-onBack:_react.PropTypes.func.isRequired};
+navigation_bar:{
+backgroundColor:'darkred'}});
 }, "EventAppReact/emailScene.js");
 __d(550 /* EventAppReact/listScene.js */, function(global, require, module, exports) {Object.defineProperty(exports,"__esModule",{value:true});var _react=require(12 /* react */);var _react2=babelHelpers.interopRequireDefault(_react);
-var _reactNative=require(44 /* react-native */);var
+var _reactNative=require(44 /* react-native */);
 
 
 
@@ -70159,11 +70167,38 @@ var _reactNative=require(44 /* react-native */);var
 
 
 
-ListScreen=function(_Component){babelHelpers.inherits(ListScreen,_Component);function ListScreen(){babelHelpers.classCallCheck(this,ListScreen);return babelHelpers.possibleConstructorReturn(this,(ListScreen.__proto__||Object.getPrototypeOf(ListScreen)).apply(this,arguments));}babelHelpers.createClass(ListScreen,[{key:'render',value:function render()
+var styles=_reactNative.StyleSheet.create({
+container:{
+flex:1,
+marginTop:20},
 
+separator:{
+flex:1,
+height:_reactNative.StyleSheet.hairlineWidth,
+backgroundColor:'#8E8E8E'},
+
+progress:{
+marginTop:80}});var
+
+
+
+ListScreen=function(_Component){babelHelpers.inherits(ListScreen,_Component);
+function ListScreen(props){babelHelpers.classCallCheck(this,ListScreen);var _this=babelHelpers.possibleConstructorReturn(this,(ListScreen.__proto__||Object.getPrototypeOf(ListScreen)).call(this,
+props));
+var ds=new _reactNative.ListView.DataSource({rowHasChanged:function rowHasChanged(r1,r2){return r1!==r2;}});
+_this.state={
+dataSource:ds.cloneWithRows([
+'John','Joel','James','Jimmy','Jackson','Jillian','Julie','Devin'])};return _this;
+
+
+}babelHelpers.createClass(ListScreen,[{key:'render',value:function render()
 {
 return(
-_react2.default.createElement(_reactNative.View,{style:{backgroundColor:'rgb(253,153,253)'}}));
+_react2.default.createElement(_reactNative.View,{style:{flex:1,paddingTop:22}},
+_react2.default.createElement(_reactNative.ListView,{
+dataSource:this.state.dataSource,
+renderRow:function renderRow(rowData){return _react2.default.createElement(_reactNative.Text,null,rowData);}})));
+
 
 
 }}]);return ListScreen;}(_react.Component);exports.default=ListScreen;

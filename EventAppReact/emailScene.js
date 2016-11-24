@@ -5,25 +5,22 @@ import {
   StyleSheet,
   Text,TextInput,
   View,
-  TouchableOpacity
+  TouchableOpacity,TouchableHighlight
 } from 'react-native';
 
 import Communications from 'react-native-communications';
 import ListScreen from './listScene.js';
 
-const routes = [
-  {
-    title: 'ListScreen',
-    index: 0
-}
-]
+
 
 export default class EmailScene extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {text1: '', text2:''};
+    onButtonPress(){
+      this.props.navigator.push({
+        id:'List'
+      })
     }
     render() {
+
       return (
         <View style={{padding: 10, flex:1}}>
           <TextInput
@@ -41,14 +38,19 @@ export default class EmailScene extends Component {
                 <View style={styles.holder}>
                   <Text style={styles.text}>Send an email</Text>
                 </View>
-              </TouchableOpacity></View>
+              </TouchableOpacity>
+          </View>
+          <TouchableHighlight style={styles.navigation_bar} onPress={this.onButtonPress.bind(this)}>
+              <Text> Go now, will you? </Text>
+          </TouchableHighlight>
+        </View>
 
-
-
-      </View>
     );
   }
-}
+};
+
+
+
 var styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -62,21 +64,10 @@ var styles = StyleSheet.create({
   text: {
     fontSize: 32,
   },
-  navigationBar:{
+  navigation_bar:{
    backgroundColor: 'darkred',
- },
- navigationBarText:{
    color: 'white',
    padding: 10,
    fontSize: 15
- },
- titleText:{
-   fontSize: 20,
-   paddingTop:5
  }
 })
-EmailScene.propTypes = {
-  title: PropTypes.string.isRequired,
-  onForward: PropTypes.func.isRequired,
-  onBack: PropTypes.func.isRequired,
-};
