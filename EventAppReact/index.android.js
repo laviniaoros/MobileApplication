@@ -17,7 +17,7 @@ import Communications from 'react-native-communications';
 
 import EmailScene from './emailScene.js';
 import ListScreen from './listScene';
-
+import DetailScreen from './detailScene';
 
 
 class EventAppReact extends Component {
@@ -39,10 +39,11 @@ class EventAppReact extends Component {
     _navigator=navigator;
     switch (route.id){
       case 'Email':
-        return (<EmailScene navigator={navigator} title='Email'/>)
+        return (<EmailScene navigator={navigator} {...route.passProps} title='Email'/>)
       case 'List':
-        return (<ListScreen navigator={navigator} title='List'/>)
-
+        return (<ListScreen navigator={navigator} {...route.passProps} title='List'/>)
+      case 'Detail':
+        return (<DetailScreen navigator={navigator} {...route.passProps} title='Detail'/>)
     }
   }
 

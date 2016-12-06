@@ -39,10 +39,12 @@ export default class EmailScene extends Component {
                   <Text style={styles.text}>Send an email</Text>
                 </View>
               </TouchableOpacity>
-          </View>
-          <TouchableHighlight style={{backgroundColor:'red'}} onPress={this.onButtonPress.bind(this)}>
+          </View >
+          <View style={{height:40, backgroundColor:'darkred', alignItems:'center'}}>
+          <TouchableHighlight onPress={this.onButtonPress.bind(this)}>
               <Text style={{color:'white'}}> Go now, will you? </Text>
           </TouchableHighlight>
+          </View>
         </View>
 
     );

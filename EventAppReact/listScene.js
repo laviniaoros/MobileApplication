@@ -9,30 +9,42 @@ import {
 } from 'react-native';
 
 
-
+var myEvents = [
+  {name: 'Die Hard', details: 'Best movie ever'},
+  {name: 'Home Alone 2', details: 'Great movie'},
+  {name: 'Bourne Identity', details: 'Awesome Movie'}
+  ]
 
 
 export default class ListScreen extends Component {
-  constructor(props) {
+  constructor(props){
   super(props);
   const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
   this.state = {
-    dataSource: ds.cloneWithRows([
-      'John', 'Joel', 'James', 'Jimmy', 'Jackson', 'Jillian', 'Julie', 'Devin'
-    ])
+    dataSource: ds.cloneWithRows(myEvents)
   };
-}
+  }
 render() {
+
   return (
-    <View style={{flex: 1, paddingTop: 22}}>
-      <ListView
+
+    <ListView style={{paddingTop:40}}
         dataSource={this.state.dataSource}
-        renderRow={(rowData) => <Text>{rowData}</Text>}
-      />
-    </View>
+        renderRow={(rowData) =>
+          <TouchableOpacity onPress={()=> this.props.navigator.push({id:'Detail',
+                     passProps:{
+                         name: rowData.name,
+                         details: rowData.details
+                      }})}>
+                     <View style={{height:50}}>
+                       <Text style={{fontSize:20, left:20}}>{rowData.name}</Text>
+                     </View>
+          </TouchableOpacity>
+                  }
+    />
   );
-}
-}
+   }
+ }
 
 const styles = StyleSheet.create({
   container:{
