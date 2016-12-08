@@ -1,9 +1,7 @@
 package com.example.lavinia.eventsapp.dummy;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Helper class for providing sample content for user interfaces created by
@@ -16,29 +14,47 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<DummyItem> items = new ArrayList<DummyItem>();
+    public static final List<EventClass> items = new ArrayList<EventClass>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, DummyItem> item_map = new HashMap<String, DummyItem>();
+   // public static final Map<String, DummyItem> item_map = new HashMap<String, DummyItem>();
 
-   // private static final int COUNT = 25;
+   //private static final int COUNT = 25;
 
     static {
         // Add some sample items.
 //        for (int i = 1; i <= COUNT; i++) {
 //            addItem(createDummyItem(i));
 //        }
-        addItem(new DummyItem(String.valueOf(1), "Quiz Night Zorki" , "In the 2nd of December we are waiting for an amusing night for all you smarties out there "));
-        addItem(new DummyItem(String.valueOf(2), "Temps D'Images" , "Art yourself up. A week full of concerts, plays and cinema events are about to happen in the second edition of Temps D'Images "));
+        addItem(new EventClass(0, "Quiz Night Zorki" , "In the 2nd of December we are waiting for an amusing night for all you smarties out there "));
+        addItem(new EventClass(1, "Temps D'Images" , "Art yourself up. A week full of concerts, plays and cinema events are about to happen in the second edition of Temps D'Images "));
     }
 
-    private static void addItem(DummyItem item) {
+    private static void addItem(EventClass item) {
         items.add(item);
-        item_map.put(item.id, item);
+        //item_map.put(item.id, item);
     }
 
+
+    public static EventClass getObjectById(int id){
+        for (EventClass ev : items){
+            if (ev.getId()==id){
+                return ev;
+            }
+        }
+        return null;
+    }
+
+    public static String getDetailsById(int id){
+        for (EventClass ev : items){
+            if (ev.getId()==id){
+                return ev.getDetails();
+            }
+        }
+        return "";
+    }
 //    private static DummyItem createDummyItem(int position) {
 //        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
 //    }
@@ -55,20 +71,30 @@ public class DummyContent {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class DummyItem {
-        public final String id;
-        public final String content;
+    public static class EventClass {
+        public final int id;
+        public final String title;
         public final String details;
 
-        public DummyItem(String id, String content, String details) {
+        public EventClass(int id, String title, String details) {
             this.id = id;
-            this.content = content;
+            this.title = title;
             this.details = details;
         }
 
+        public String getDetails(){
+            return this.details;
+        }
+        public String getTitle(){
+            return this.title;
+        }
+
+        public int getId(){
+            return this.id;
+        }
         @Override
         public String toString() {
-            return content;
+            return title;
         }
     }
 }

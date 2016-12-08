@@ -46,7 +46,7 @@ public class InputTextEmail extends AppCompatActivity {
         Button next = (Button) findViewById(R.id.skip_btn);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), ItemListActivity.class);
+                Intent myIntent = new Intent(view.getContext(), ListViewActivity.class);
                 startActivityForResult(myIntent, 0);
             }
 
@@ -120,7 +120,7 @@ public class InputTextEmail extends AppCompatActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            NavUtils.navigateUpTo(this, new Intent(this, ItemListActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this, ListViewActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
