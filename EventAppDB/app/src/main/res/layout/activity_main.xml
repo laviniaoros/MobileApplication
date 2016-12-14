@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lavinia.eventappdb.ListViewActivity">
+
+<!--android:paddingBottom="16dp"-->
+    <!--android:paddingLeft="64dp"-->
+    <!--android:paddingRight="64dp"-->
+    <!--android:paddingTop="16dp"-->
+    <TextView
+        android:id="@+id/textLabelAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="ADD a new element to the list"></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/title"
+            android:layout_below="@id/textLabelAdd"
+
+            android:hint="add a new event" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+
+            android:id="@+id/details"
+            android:hint="add its details" />
+
+        <Button
+            android:id="@+id/add"
+            android:layout_below="@id/details"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Add New"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/deleteLabel"
+            android:layout_below="@id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_centerHorizontal="true"
+            android:text="Delete an element of the list"></TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/deleteLabel"
+
+            android:id="@+id/deleteBox"
+            android:hint="delete by id" />
+
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_below="@id/deleteBox"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete First"
+            android:onClick="onClick"/>
+
+
+    <!--android:id="@android:id/list"-->
+    <!--android:id="@+id/listView"-->
+
+    <ListView
+
+
+        android:layout_below="@id/delete"
+    android:id="@android:id/list"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+</RelativeLayout>
+
